@@ -23,16 +23,14 @@ Interactive py2neo console (ipy2neo)
 Quick Example
 -------------
 
-To run a query against a local database is straightforward::
+To connect to a local Neo4j instance is straightforward::
 
-    >>> from py2neo import Graph
-    >>> graph = Graph("bolt://localhost:7687", auth=("neo4j", "password"))
-    >>> graph.run("UNWIND range(1, 3) AS n RETURN n, n * n as n_sq")
-       n | n_sq
-    -----|------
-       1 |    1
-       2 |    4
-       3 |    9
+    $ ipy2neo --uri neo4j://localhost:7687 --auth neo4j:password
+    neo4j@localhost/~ -> CREATE (a:Person {name:'Alice'})-[:KNOWS]->(b:Person {name:'Bob'}) RETURN a, b
+     a                           | b
+    -----------------------------|---------------------------
+     (_0:Person {name: 'Alice'}) | (_1:Person {name: 'Bob'})
+
 
 
 Releases & Versioning
