@@ -1,5 +1,5 @@
-Interactive py2neo console (ipy2neo)
-====================================
+ipy2neo
+=======
 .. image:: https://img.shields.io/github/v/release/technige/ipy2neo?sort=semver
    :target: https://github.com/technige/ipy2neo
    :alt: GitHub release
