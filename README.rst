@@ -1,20 +1,16 @@
 ipy2neo
 =======
-.. image:: https://img.shields.io/github/v/release/technige/ipy2neo?sort=semver
-   :target: https://github.com/technige/ipy2neo
-   :alt: GitHub release
+.. image:: https://img.shields.io/pypi/v/ipy2neo.svg
+   :target: https://pypi.python.org/pypi/ipy2neo
+   :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/dm/ipy2neo
+   :target: https://pypi.python.org/pypi/ipy2neo
+   :alt: PyPI Downloads
 
 .. image:: https://img.shields.io/github/license/technige/ipy2neo.svg
    :target: https://www.apache.org/licenses/LICENSE-2.0
    :alt: License
-
-.. image:: https://img.shields.io/github/workflow/status/technige/ipy2neo/Run%20tests%20(Ubuntu%2018.04)
-   :target: https://github.com/technige/ipy2neo/actions?query=workflow%3A"Run%20tests%20(Ubuntu%2018.04)"
-   :alt: GitHub Workflow Status
-
-.. image:: https://coveralls.io/repos/github/technige/ipy2neo/badge.svg?branch=master
-   :target: https://coveralls.io/github/technige/ipy2neo?branch=master
-   :alt: Coverage Status
 
 
 **IPy2neo** is a an interactive command line console for working with `Neo4j <https://neo4j.com/>`_ built on top of the `py2neo <https://py2neo.org>`_ library.
@@ -45,13 +41,6 @@ whereas a change in ``N`` may require some work. A change to the year is likely 
 
 Installation
 ------------
-.. image:: https://img.shields.io/pypi/v/ipy2neo.svg
-   :target: https://pypi.python.org/pypi/ipy2neo
-   :alt: PyPI version
-
-.. image:: https://img.shields.io/pypi/dm/ipy2neo
-   :target: https://pypi.python.org/pypi/ipy2neo
-   :alt: PyPI Downloads
 
 To install the latest release of ipy2neo, simply use:
 
@@ -78,7 +67,7 @@ Requirements
 
 The following versions of Python and Neo4j (all editions) are supported:
 
-- Python 2.7 / 3.4 / 3.5 / 3.6 / 3.7 / 3.8 / 3.9
+- Python 2.7 / 3.5 / 3.6 / 3.7 / 3.8 / 3.9
 - Neo4j 3.4 / 3.5 / 4.0 / 4.1 / 4.2 / 4.3 (the latest point release of each version is recommended)
 
 Note also that IPy2neo is developed and tested under **Linux** using standard CPython distributions.
