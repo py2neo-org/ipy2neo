@@ -58,9 +58,3 @@ The following versions of Python and Neo4j (all editions) are supported:
 
 Note also that ipy2neo is developed and tested under **Linux** using standard CPython distributions.
 While other operating systems and Python distributions may work, support for these is not available.
-
-
-More
-----
-
-For more information, read the `handbook <https://py2neo.org/i>`_.

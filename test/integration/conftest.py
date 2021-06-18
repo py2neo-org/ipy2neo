@@ -171,7 +171,7 @@ def test_profile(request):
 
 @fixture(scope="session")
 def neo4j_service_and_uri(test_profile):
-    for service, uri in test_profile.generate_uri("py2neo"):
+    for service, uri in test_profile.generate_uri("ipy2neo"):
         yield service, uri
     return
 

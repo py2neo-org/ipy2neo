@@ -46,7 +46,7 @@ from ipy2neo import __version__
 
 EDITOR = environ.get("EDITOR", "vim")
 
-HISTORY_FILE_DIR = expanduser(path_join("~", ".py2neo"))
+HISTORY_FILE_DIR = expanduser(path_join("~", ".ipy2neo"))
 
 HISTORY_FILE = "console_history"
 
