@@ -35,13 +35,13 @@ from prompt_toolkit.styles import merge_styles, style_from_pygments_cls, style_f
 from pygments.styles.native import NativeStyle
 from pygments.token import Token
 
-from py2neo import __version__, ServiceProfile
+from py2neo import __version__ as py2neo_version, ServiceProfile
 from py2neo.cypher.lexer import CypherLexer
 from py2neo.database import GraphService
 from py2neo.errors import Neo4jError
 from py2neo.export import Table
 
-from ipy2neo.meta import get_metadata
+from ipy2neo import __version__
 
 
 EDITOR = environ.get("EDITOR", "vim")
@@ -50,9 +50,9 @@ HISTORY_FILE_DIR = expanduser(path_join("~", ".py2neo"))
 
 HISTORY_FILE = "console_history"
 
-TITLE = "Py2neo console v{}".format(__version__)
+TITLE = "ipy2neo {} on py2neo {}".format(__version__, py2neo_version)
 
-DESCRIPTION = "Py2neo console is a Cypher runner and interactive tool for Neo4j."
+DESCRIPTION = "ipy2neo is a Cypher runner and interactive tool for Neo4j."
 
 QUICK_HELP = """\
   //  to enter multi-line mode (press [Alt]+[Enter] to run)
@@ -98,9 +98,7 @@ Formatting commands:
 Information commands:
   /config   show Neo4j server configuration
   /kernel   show Neo4j kernel information
-
-Report bugs to {}\
-""".format(QUICK_HELP, get_metadata()["author_email"])
+""".format(QUICK_HELP)
 
 
 def is_command(source):

@@ -13,7 +13,7 @@ ipy2neo
    :alt: License
 
 
-**IPy2neo** is a an interactive command line console for working with `Neo4j <https://neo4j.com/>`_ built on top of the `py2neo <https://py2neo.org>`_ library.
+**ipy2neo** is a an interactive command line console for working with `Neo4j <https://neo4j.com/>`_ built on top of the `py2neo <https://py2neo.org>`_ library.
 
 
 Quick Example
@@ -29,30 +29,16 @@ To connect to a local Neo4j instance is straightforward::
 
 
 
-Releases & Versioning
----------------------
-
-IPy2neo releases adhere to `Calendar Versioning <https://calver.org/>`_, using a scheme of ``YYYY.N.M``.
-Here, ``N`` is an incrementing zero-based number for each year, and ``M`` is a revision within that version (also zero-based).
-
-No compatibility guarantees are given between versions, but as a general rule, a change in ``M`` should require little-to-no work within client applications,
-whereas a change in ``N`` may require some work. A change to the year is likely to require a more significant amount of work to upgrade.
 
 
 Installation
 ------------
 
-To install the latest release of ipy2neo, simply use:
+To install ipy2neo, simply use:
 
 .. code-block::
 
-    $ pip install --upgrade ipy2neo
-
-To install the latest stable code from the GitHub master branch, use:
-
-.. code-block::
-
-    $ pip install git+https://github.com/technige/ipy2neo.git@master#egg=ipy2neo
+    $ pip install ipy2neo
 
 
 Requirements
@@ -70,7 +56,7 @@ The following versions of Python and Neo4j (all editions) are supported:
 - Python 2.7 / 3.5 / 3.6 / 3.7 / 3.8 / 3.9
 - Neo4j 3.4 / 3.5 / 4.0 / 4.1 / 4.2 / 4.3 (the latest point release of each version is recommended)
 
-Note also that IPy2neo is developed and tested under **Linux** using standard CPython distributions.
+Note also that ipy2neo is developed and tested under **Linux** using standard CPython distributions.
 While other operating systems and Python distributions may work, support for these is not available.
 
 

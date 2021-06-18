@@ -43,7 +43,7 @@ def console(cypher, uri, auth=None, routing=False, secure=False, verbose=False, 
     """ Run one or more Cypher queries through the client console, or
     open the console for interactive use if no queries are specified.
     """
-    from py2neo.client.console import ClientConsole
+    from ipy2neo.console import ClientConsole
     con = ClientConsole(uri, auth=auth, routing=routing, secure=secure,
                         verbosity=(verbose - quiet), welcome=False)
     if cypher:

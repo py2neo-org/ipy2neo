@@ -16,12 +16,11 @@
 # limitations under the License.
 
 
-from os import getenv, path
-from warnings import warn
+from os import path
 
 from setuptools import setup, find_packages
 
-from ipy2neo.meta import VERSION_FILE, get_metadata, parse_version_string
+from ipy2neo import __version__
 
 
 README_FILE = path.join(path.dirname(__file__), "README.rst")
@@ -32,78 +31,59 @@ def get_readme():
         return f.read()
 
 
-class Release(object):
-
-    def __init__(self):
-        self.__original = None
-
-    def __enter__(self):
-        self.__original = parse_version_string(self._read_version())
-        if self.__original["dev"]:
-            patched = parse_version_string(self._read_patched())
-            self._check_compatible(self.__original, patched)
-            self._patch_version(patched["string"])
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self._patch_version(self.__original["string"])
-
-    @classmethod
-    def _read_version(cls):
-        with open(VERSION_FILE, "r") as f:
-            return f.read()
-
-    @classmethod
-    def _read_patched(cls):
-        patched = getenv("RELEASE")
-        if patched:
-            return patched
-        else:
-            warn("RELEASE environment variable not set - assuming development release")
-            return cls._read_version()
-
-    @classmethod
-    def _check_compatible(cls, original, patched):
-        if original == patched:
-            return
-        compatible = True
-        if patched["epoch"] != original["epoch"]:
-            compatible = False
-        if patched["release"][:2] != original["release"][:2]:
-            compatible = False
-        if patched["dev"] is not None:
-            compatible = False
-        if not compatible:
-            raise SystemExit("Patched version string %r is not compatible with original version "
-                             "string %r" % (patched["string"], original["string"]))
-
-    @classmethod
-    def _patch_version(cls, value):
-        with open(VERSION_FILE, "w") as f:
-            f.write(value)
-
-
-with Release():
-    setup(**dict(get_metadata(), **{
-        "long_description": get_readme(),
-        "long_description_content_type": "text/x-rst",
-        "entry_points": {
-            "console_scripts": [
-                "ipy2neo = ipy2neo.__main__:main",
-            ],
-        },
-        "packages": find_packages(exclude=("docs", "test", "test.*")),
-        "package_data": {
-            "ipy2neo": ["VERSION"],
-        },
-        "py_modules": [],
-        "install_requires": [
-            "pansi>=2020.7.3",
-            "prompt_toolkit~=2.0.7; python_version < '3.6'",
-            "prompt_toolkit>=2.0.7; python_version >= '3.6'",
-            "py2neo",
-            "pygments>=2.0.0",
+setup(
+    name="ipy2neo",
+    version=__version__,
+    description="Interactive Neo4j console built on py2neo",
+    author="Nigel Small",
+    author_email="technige@py2neo.org",
+    url="https://py2neo.org/ipy2neo",
+    project_urls={
+        "Bug Tracker": "https://github.com/py2neo-org/ipy2neo/issues",
+        "Documentation": "https://py2neo.org/ipy2neo/",
+        "Source Code": "https://github.com/py2neo-org/ipy2neo",
+    },
+    license="Apache License, Version 2.0",
+    keywords=[],
+    platforms=[],
+    classifiers=[
+        "Development Status :: 6 - Mature",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Information Technology",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: Apache Software License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Topic :: Database",
+        "Topic :: Database :: Database Engines/Servers",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Software Development",
+        "Topic :: Software Development :: Libraries"],
+    long_description=get_readme(),
+    long_description_content_type="text/x-rst",
+    entry_points={
+        "console_scripts": [
+            "ipy2neo = ipy2neo.__main__:main",
         ],
-        "extras_require": {
-        },
-    }))
+    },
+    packages=find_packages(exclude=("docs", "test", "test.*")),
+    py_modules=[],
+    install_requires=[
+        "pansi>=2020.7.3",
+        "prompt_toolkit~=2.0.7; python_version < '3.6'",
+        "prompt_toolkit>=2.0.7; python_version >= '3.6'",
+        "py2neo",
+        "pygments>=2.0.0",
+    ]
+)

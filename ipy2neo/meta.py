@@ -16,13 +16,7 @@
 # limitations under the License.
 
 
-from os import getenv, path
-
-
-PACKAGE_NAME = "ipy2neo"
-PACKAGE_DESCRIPTION = "Interactive Neo4j shell"
-
-VERSION_FILE = path.join(path.dirname(__file__), "VERSION")
+from os import getenv
 
 
 def _parse_letter_version(letter, number):
@@ -113,35 +107,18 @@ def parse_version_string(version_string):
     }
 
 
-def get_version_data():
-    rtd_version = getenv("READTHEDOCS_PROJECT") == PACKAGE_NAME and getenv("READTHEDOCS_VERSION")
-    if rtd_version and rtd_version not in ("latest", "stable"):
-        version_string = rtd_version
-    else:
-        with open(VERSION_FILE) as f:
-            version_string = f.read().strip()
-    data = parse_version_string(version_string)
-    data["rtd"] = rtd_version
-    return data
-
-
 def get_metadata():
-
-    version_data = get_version_data()
-    source_url = "https://github.com/technige/ipy2neo"
-    release = version_data["release"]
-
     return {
-        "name": PACKAGE_NAME,
-        "version": (version_data["string"]),
-        "description": PACKAGE_DESCRIPTION,
+        "name": "ipy2neo",
+        "version": "2021.0.0",
+        "description": "Interactive Neo4j console built on py2neo",
         "author": "Nigel Small",
         "author_email": "technige@py2neo.org",
-        "url": "https://py2neo.org/i",
+        "url": "https://py2neo.org/ipy2neo",
         "project_urls": {
-            "Bug Tracker": "{}/issues".format(source_url),
-            "Documentation": "https://py2neo.org/i/{}.{}/".format(release[0], release[1]),
-            "Source Code": source_url,
+            "Bug Tracker": "https://github.com/py2neo-org/ipy2neo/issues",
+            "Documentation": "https://py2neo.org/ipy2neo/",
+            "Source Code": "https://github.com/py2neo-org/ipy2neo",
         },
         "license": "Apache License, Version 2.0",
         "keywords": [],
